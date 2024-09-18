@@ -5,9 +5,7 @@ import com.WisdomQuestAcademy.Repository.BaseDaoCore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.batch.BatchProperties;
 import org.springframework.boot.autoconfigure.batch.BatchProperties.Jdbc;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,4 +19,10 @@ public class WisdomQuestAcademy {
     public List<Courses> getAllCourses() {
         return null; //repository.findall method
     }
+    @PostMapping
+    public Courses createCourses(@RequestBody Courses courses) {
+        return null; // save the data to the table
+    }
+
+
 }
