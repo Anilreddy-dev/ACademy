@@ -19,6 +19,6 @@ public class WisdomQuestAcademy {
 
     @GetMapping
     public List<Courses> getAllCourses() {
-        return null; //repository.findall
+        return null; //repository.findall method
     }
 }
