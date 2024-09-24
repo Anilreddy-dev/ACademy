@@ -21,8 +21,8 @@ public class Courses {
     private int lecturerId;
     private Date creationDate;
     private Date updateDate;
-    private boolean isdeleted;
-    private boolean isactive;
+    private int isdeleted;
+    private int isactive;
 
 
 }

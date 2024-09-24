@@ -15,16 +15,37 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
-    @GetMapping(value = "/getall")
-    public ResponseEntity<GeneralResponse> getAllCourse(@RequestParam int page, @RequestParam int size) throws Exception {
-        return ResponseEntity.ok().body(
-                courseService.getAllCourses(page, size));
+    @GetMapping("/get")
+    public ResponseEntity<GeneralResponse> getallController() throws Exception {
+        return ResponseEntity.ok().body(courseService.getallcourseService());
     }
 
-    @PostMapping
-    public ResponseEntity<GeneralResponse> addCourse(@RequestBody Courses course) throws Exception {
+
+    //
+//    @GetMapping(value = "/getall")
+//    public ResponseEntity<GeneralResponse> getAllCourse(@RequestParam int page, @RequestParam int size) throws Exception {
+//        return ResponseEntity.ok().body(courseService.getAllCourses(page, size));
+//    }
+//
+//    @PostMapping
+//    public ResponseEntity<GeneralResponse> addCourse(@RequestBody Courses course) throws Exception {
+//        return ResponseEntity.ok().body(
+//                courseService.addCourse(course)
+//        );
+//    }
+//
+    @GetMapping("/getallbyid")
+    public ResponseEntity<GeneralResponse> getId(@RequestParam int id) throws Exception {
         return ResponseEntity.ok().body(
-                courseService.addCourse(course)
-        );
+                courseService.getcoursebyid(id));
+
     }
+//
+//    @DeleteMapping("/delete/{id}")
+//    public ResponseEntity<GeneralResponse> deleteCourse(@PathVariable int id) throws Exception {
+//        return ResponseEntity.ok().body(
+//                courseService.delteCourseById(id)
+//        );
+//    }
+
 }
