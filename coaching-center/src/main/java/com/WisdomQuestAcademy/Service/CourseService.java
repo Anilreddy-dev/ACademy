@@ -39,58 +39,41 @@ public class CourseService {
         return response;
     }
 
-//    public GeneralResponse getAllCourses(int page, int size) throws Exception {
-//        GeneralResponse response;
-//        try {
-//            List<Courses> courseList = courseDao.getAllCourse(page, size);
-//            response = new GeneralResponse("true", "Fetched all courses",courseList);
-//
-//        } catch (Exception e) {
-//            throw new Exception("unable to find");
-//        }
-//        return response;
-//
-//    }
-//
-//   public GeneralResponse getCoursesid(int id) throws Exception {
-//        GeneralResponse response;
-//        try {
-//            List<Courses> coursesList=courseDao.getCourseById(id);
-//            response = new GeneralResponse(true, "Fetched one course",coursesList);
-//        } catch (Exception e) {
-//            throw new RuntimeException(e);
-//        }
-//        return response;
-//    }
-//
-//    public GeneralResponse delteCourseById(int id) throws Exception {
-//        GeneralResponse response;
-//        try {
-//            int roweffected =courseDao.deleteCourseById(id);
-//            response = new GeneralResponse("true", "Deleted one course",roweffected);
-//        }
-//        catch (Exception e) {
-//            throw new Exception("unable to delete");
-//        }
-//        return response;
-//    }
-//
-//
-//
-//
-//
-//    public GeneralResponse addCourse(Courses course) throws Exception {
-//        GeneralResponse response;
-//        try {
-//            int i = courseDao.addCourse(course);
-//            response = new GeneralResponse("true", "Added course", i);
-//        } catch (Exception e) {
-//            throw new Exception("unable to add course");
-//        }
-//
-//        return response;
-//
-//    }
-//
+    public GeneralResponse getAllCourses(int page, int size) throws Exception {
+        GeneralResponse response;
+        try {
+            List<Courses> courseList = courseDao.getAlLpagenation(page, size);
+            response = new GeneralResponse(true, "Fetched all courses", courseList);
+
+        } catch (Exception e) {
+            throw new Exception("unable to find");
+        }
+        return response;
+
+    }
+
+    public GeneralResponse deleteCourse(int id) throws Exception {
+        GeneralResponse response;
+        try {
+            Object course = courseDao.SoftdeleteCourseById(id);
+            response = new GeneralResponse(true, "Deleted course", course);
+        }
+        catch (Exception e) {
+            throw new Exception("unable to delete");
+        }
+        return response;
+    }
+
+   public GeneralResponse addCourse_service(Courses course) throws Exception {
+        GeneralResponse response;
+        try{
+            Object  newcourse = courseDao.addCourse_dao(course);
+            response = new GeneralResponse(true, "Added course", newcourse);
+        } catch (Exception e) {
+
+            throw new RuntimeException(e);
+        }
+       return response;
+   }
 
 }
