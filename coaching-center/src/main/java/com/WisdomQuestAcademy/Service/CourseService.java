@@ -76,4 +76,15 @@ public class CourseService {
        return response;
    }
 
+   public GeneralResponse updateCourse_service(int id,Courses course) throws Exception {
+        GeneralResponse response;
+        try{
+            Object updatedcourse = courseDao.updateCourse_dao(  id , course);
+            response = new GeneralResponse(true, "Updated course", updatedcourse);
+        }catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+      return response;
+   }
+
 }

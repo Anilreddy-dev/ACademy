@@ -36,6 +36,7 @@ public class CourseDao extends BaseDaoCore {
     private final String deletequery = "UPDATE courses SET `IS_DELETED` = '1', `IS_ACTIVE` = '0' WHERE id =?";
 
     public int SoftdeleteCourseById(int id) {
+
         return jdbcTemplate.update(deletequery, id);
     }
 
@@ -55,6 +56,12 @@ public class CourseDao extends BaseDaoCore {
         }, keyHolder);
 
         return Objects.requireNonNull(keyHolder.getKey()).intValue();
+    }
+
+    private final String updateQuery = "UPDATE  courses SET COURSE_NAME=?,COURSE_PRICE=?,LECTURER_ID=?,IS_DELETED=?,IS_ACTIVE=? where id=?";
+    public int updateCourse_dao(int id , Courses course) {
+        return jdbcTemplate.update(updateQuery,course.getCourseName(),course.getCoursePrice(),course.getLecturerId(),course.getIsdeleted(),course.getIsactive(),id);
+
     }
 
 

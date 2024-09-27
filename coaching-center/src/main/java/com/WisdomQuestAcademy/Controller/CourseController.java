@@ -38,6 +38,12 @@ public class CourseController {
                 courseService.addCourse_service(course)
         );
     }
+    @PutMapping("/update")
+    public ResponseEntity<GeneralResponse> updateCourse(@RequestParam int id ,@RequestBody Courses course) throws Exception {
+        return ResponseEntity.ok().body(
+                courseService.updateCourse_service(id,course)
+        );
+    }
 
 
 
